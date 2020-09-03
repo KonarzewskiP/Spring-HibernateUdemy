@@ -8,18 +8,38 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="sport.properties"/>
+
     <!-- Define your beans here -->
     <bean id="myFortuneService"
           class="com.inversionControl.HappyFortuneService">
     </bean>
+
+
     <bean id="boxingCoach"
           class="com.inversionControl.BoxingCoach">
+
+        <!-- set up constructor injection -->
         <constructor-arg ref="myFortuneService" />
+    </bean>
+
+    <bean id="myCricketCoach"
+          class="com.inversionControl.CricketCoach">
+
+        <!-- set up setter injection -->
+        <property name="fortuneService" ref="myFortuneService" />
+
+        <!-- inject literal values -->
+        <property name="emailAddress" value="${foo.email}"/>
+        <property name="team" value="${foo.team}" />
     </bean>
 
     <bean id="myCoach"
           class="com.inversionControl.TrackCoach">
+        <constructor-arg ref="myFortuneService" />
     </bean>
+
+
 </beans>
 
 

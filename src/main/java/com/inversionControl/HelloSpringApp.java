@@ -18,6 +18,10 @@ public class HelloSpringApp {
         System.out.println(theCoach.getDailyWorkout());
         System.out.println(boxingCoach.getDailyWorkout());
 
+        // call methods for fortunes
+        System.out.println(theCoach.getDailyFortune());
+        System.out.println(boxingCoach.getDailyFortune());
+
         // close the context
         context.close();
         contextTwo.close();
