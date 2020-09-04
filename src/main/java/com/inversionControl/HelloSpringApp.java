@@ -4,7 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class HelloSpringApp {
     public static void main(String[] args) {
 
-        // load the spring configuration file
+/*        // load the spring configuration file
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         ClassPathXmlApplicationContext contextTwo =
@@ -24,7 +24,7 @@ public class HelloSpringApp {
 
         // close the context
         context.close();
-        contextTwo.close();
+        contextTwo.close();*/
     }
 
 }
