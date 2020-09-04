@@ -10,6 +10,8 @@
 
     <!-- add entry to enable component scanning -->
 
+    <context:property-placeholder location="sport.properties"/>
+
     <context:component-scan base-package="spring_demo_annotations"/>
 
     <!-- Define your beans here -->
