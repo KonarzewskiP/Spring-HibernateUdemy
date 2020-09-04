@@ -3,6 +3,7 @@ package spring_demo_annotations;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.FileReader;
 import java.util.Random;
 import java.util.Scanner;
@@ -26,8 +27,9 @@ public class DatabaseFortuneService implements FortuneServices {
         }
     }
 
+    @PostConstruct
     private String[] readLines() {
-
+        System.out.println(" \n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >>>>>>>>>>>>>> >>>>>>>>>> >>>>>>>>>> >>>>>>>>>>> >>>>>>>>>>> >>>>>>>>>>>\n");
         try (FileReader fileReader = new FileReader(filename); Scanner sc = new Scanner(fileReader)) {
             int size = countLines();
             String[] lines = new String[size];
