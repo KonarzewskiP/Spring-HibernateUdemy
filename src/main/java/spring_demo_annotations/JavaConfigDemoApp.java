@@ -1,16 +1,17 @@
 package spring_demo_annotations;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AnnotationDemoApp {
+public class JavaConfigDemoApp {
 
     public static void main(String[] args) {
 
         //read spring config file
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("springDemoComponentScan.xml");
-        ClassPathXmlApplicationContext contextTwo = new ClassPathXmlApplicationContext("springDemoComponentScan.xml");
-        ClassPathXmlApplicationContext contextThree = new ClassPathXmlApplicationContext("springDemoComponentScan.xml");
-        ClassPathXmlApplicationContext contextFour = new ClassPathXmlApplicationContext("springDemoComponentScan.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
+        AnnotationConfigApplicationContext contextTwo = new AnnotationConfigApplicationContext(SportConfig.class);
+        AnnotationConfigApplicationContext contextThree = new AnnotationConfigApplicationContext(SportConfig.class);
+        AnnotationConfigApplicationContext contextFour = new AnnotationConfigApplicationContext(SportConfig.class);
 
         //get the bean from the spring container
         Coach theCoach = context.getBean("tennisCoach", Coach.class);
