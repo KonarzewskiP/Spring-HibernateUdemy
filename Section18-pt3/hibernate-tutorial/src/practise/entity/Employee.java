@@ -1,40 +1,45 @@
-package hibernate.demo.entity;
+package practise.entity;
+
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import java.util.Date;
 
-//@Entity - This is a class which will be map as database table
 @Entity
-//@Table - name of the DB table. By default table name is a class name.
-@Table(name = "student")
-public class Student {
+@Table(name = "employee")
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "start_date")
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+    @Column(name = "company")
+    private String company;
 
-    public Student() {
+    public Employee() {
     }
 
-    public Student(String firstName, String lastName, String email) {
+    public Employee(String firstName, String lastName, String company, Date startDate) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.company = company;
+        this.startDate = startDate;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -54,21 +59,30 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCompany() {
+        return company;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", startDate=" + startDate +
+                ", company='" + company + '\'' +
                 '}';
     }
 }
