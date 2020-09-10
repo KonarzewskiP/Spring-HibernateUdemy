@@ -41,7 +41,7 @@ public class Instructor {
      * mappedBy = "instructor" - refers to 'instructor' property in
      * COURSE class
      * */
-    @OneToMany(mappedBy = "instructor", cascade = {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = {
             CascadeType.PERSIST,
             CascadeType.DETACH,
             CascadeType.REFRESH,
