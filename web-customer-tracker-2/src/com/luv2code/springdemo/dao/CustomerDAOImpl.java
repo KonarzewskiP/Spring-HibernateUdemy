@@ -34,13 +34,11 @@ public class CustomerDAOImpl implements CustomerDAO {
         // return the result
         return customers;
     }
-
     /*
      * saveOrUpdate(...)
      * if (primaryKey/id) is empty then INSERT new customer
      * else UPDATE exiting customer
      * */
-
     @Override
     public void saveCustomer(Customer theCustomer) {
         Session currentSession = sessionFactory.getCurrentSession();
